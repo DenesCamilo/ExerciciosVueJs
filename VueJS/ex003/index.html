@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <title>Vue</title>
+</head>
+<body>
+    <div id="app">
+        <p>Curso: {{ curso }}</p>
+        <a v-bind:href="docs">VueJs</a>
+        <p>Instrutor: <span v-text='instrutor'></span></p>
+        <p>Tema da aula: {{temaAula}}</p>
+        <input type="text" v-on:input="setTemaAula">
+    </div>
+    <!--
+        Uma diretiva é um atributo especial prefixado com um "v" e um " - ".
+
+        No caso do v-bind podemos passar o atributo que queremos fazer a ligação de dados, que nesse caso foi o "href", pra fornecer um link dinamicamente para o elemento"<a>".
+          
+        O trabalho de uma diretiva é aplicar efeitos colaterais no dom sempre que a expreção que eu passar pra ela for alterada 
+    -->
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data: {
+                curso:'VueJs',
+                docs:'https://vuejs.org',
+                instrutor:'Denes Camilo',
+                temaAula:''
+            },
+            methods:{
+                setTemaAula: function(event){
+                    this.temaAula = event.target.value;
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

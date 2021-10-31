@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <title>v-once</title>
+</head>
+<body>
+    <div id="app">
+        <p id="a" v-once>Nome inteiro: {{ nome }}</p>
+        <p>Nome: {{getNome()}}</p>
+        
+    </div>
+    <!-- A diretiva "v-once" faz com que o elemento e todos os seus filhos sejam renderizados somente uma vez, ou sejaa diretiva "v-once" desabilita novas renderizações naquele elemnto-->
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                nome:'Denes Camilo'
+            },
+            methods:{
+                getNome: function(){
+                    this.nome ='Denes'
+                    return this.nome;
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
